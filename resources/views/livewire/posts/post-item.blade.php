@@ -1,7 +1,6 @@
 <tr>
     <td class="border px-4 py-2">{{ $post->title }}</td>
     <td class="border px-4 py-2">{{ $post->description }}</td>
-    <td class="border px-4 py-2">{{ $post->category->name }}</td>
     <td class="border px-4 py-2">
         <button type="button" wire:confirm="Are you sure you want to delete this post?"
         wire:click="delete({{ $post->id }})"

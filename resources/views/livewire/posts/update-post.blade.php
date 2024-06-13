@@ -14,17 +14,6 @@
         </div>
 
         <div class="mb-4">
-            <label for="category" class="block text-gray-700 text-sm font-bold mb-2">Select Category</label>
-            <select id="category" wire:model.defer="form.category_id" class="w-full px-4 py-2 border rounded-md focus:outline-none focus:ring-2 focus:ring-blue-500">
-                <option value="">Choose a category</option>
-                @foreach($categories as $key => $value)
-                    <option value="{{ $key }}">{{ $value }}</option>
-                @endforeach
-            </select>
-            <div>@error('form.category_id') <span class="text-red-500 text-sm">{{ $message }}</span> @enderror</div>
-        </div>
-
-        <div class="mb-4">
             <input type="checkbox" id="is_published" wire:model="form.is_published" class="mr-2 leading-tight">
             <label for="is_published" class="text-gray-700 text-sm font-bold">Published</label>
         </div>

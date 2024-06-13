@@ -33,13 +33,6 @@
         </div>
         </div>
 
-        <div class="mb-6">
-            <livewire:components.select :options="$categories" wire:model="form.category_id" />
-                <div>@error('form.category_id') <span class="text-red-500 text-sm">{{ $message }}</span> @enderror</div>
-        </div>
-
-
-
         <div class="mb-4">
             <input type="checkbox" wire:model="form.is_published" /> Published
         </div>
@@ -55,22 +48,6 @@
             <label for="checkbox" class="block text-gray-700 text-sm font-bold mb-2">Option</label>
             <input type="radio" value="yes" wire:model="receiveUpdates"> yes
             <input type="radio" value="no" wire:model="receiveUpdates"> no
-        </div>
-
-        <div class="mb-4">
-            <select wire:model.live="selectedOption">
-                <option value="" selected> Select Category </option>
-                @foreach (\App\Models\Category::all() as $category)
-                <option value="{{ $category->id }}">{{ $category->name }}</option>
-                @endforeach
-            </select>
-
-            <select wire:model.live="selectedPost" wire:key="{{ $selectedOption }}">
-                <option value="" selected> Select Post </option>
-                @foreach (\App\Models\Post::whereCategoryId($selectedOption)->get() as $post)
-                <option value="{{ $post->id }}">{{ $post->title }}</option>
-                @endforeach
-            </select>
         </div>
 
         <div class="flex items-center justify-between">

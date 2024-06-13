@@ -36,7 +36,6 @@ use App\Livewire\CountDown;
                 <tr class="bg-gray-100">
                     <th class="border px-4 py-2">Title</th>
                     <th class="border px-4 py-2">Description</th>
-                    <th class="border px-4 py-2">Category</th>
                     <th class="border px-4 py-2">Actions</th>
                 </tr>
             </thead>
