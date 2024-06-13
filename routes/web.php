@@ -9,6 +9,7 @@ use App\Livewire\Categories\ShowCategory;
 use App\Livewire\Categories\CreateCategory;
 use App\Livewire\Categories\ListCategories;
 use App\Livewire\Categories\UpdateCategory;
+use App\Livewire\Todo\ListTodo;
 
 /*
 |--------------------------------------------------------------------------
@@ -37,4 +38,8 @@ Route::prefix('categories')->group(function () {
     Route::get('/create', CreateCategory::class)->name('categories.create');
     Route::get('/{category}/edit', UpdateCategory::class)->name('categories.edit');
     Route::get('/{category}/show', ShowCategory::class)->name('categories.show');
+});
+
+Route::prefix('todos')->group(function () {
+    Route::get('/', ListTodo::class)->name('todos.index')->lazy(enabled: false);
 });
