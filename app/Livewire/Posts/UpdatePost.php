@@ -4,6 +4,7 @@ namespace App\Livewire\Posts;
 
 use App\Models\Post;
 use Livewire\Component;
+use App\Models\Category;
 use App\Livewire\Forms\PostForm;
 
 class UpdatePost extends Component
@@ -24,6 +25,8 @@ class UpdatePost extends Component
 
     public function render()
     {
-        return view('livewire.posts.update-post');
+        return view('livewire.posts.update-post')->with([
+            'categories' => Category::all()->pluck('name', 'id')->toArray()
+        ]);
     }
 }
