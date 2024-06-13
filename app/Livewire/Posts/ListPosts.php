@@ -21,16 +21,11 @@ class ListPosts extends Component
     #[Url(keep: true)]
     public ?string $search = '';
 
-    // public function search()
-    // {
-    //     $this->resetPage();
-    // }
-
     public function createPost(){
         return redirect()->route('posts.create');
     }
 
-    #[Computed(persist: true, seconds: 7200)]
+    #[Computed]
     public function posts() {
         return Post::with('category')->when($this->search, function($query) {
             $query->where('title', 'like', '%' . $this->search . '%')
