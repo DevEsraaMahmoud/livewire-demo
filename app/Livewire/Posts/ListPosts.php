@@ -32,7 +32,7 @@ class ListPosts extends Component
 
     #[Computed(persist: true, seconds: 7200)]
     public function posts() {
-        return Post::when($this->search, function($query) {
+        return Post::with('category')->when($this->search, function($query) {
             $query->where('title', 'like', '%' . $this->search . '%')
             ->orWhere('description', 'like', '%' . $this->search . '%');
         })->latest()->paginate(10, pageName: 'posts-page');

@@ -24,6 +24,9 @@ class PostForm extends Form
     // #[Validate('image|max:1024')] // 1MB Max
     public $photo;
 
+    #[Validate('exists:categories,id', message: 'Please select valid category')]
+    public $category_id = null;
+
     public function setPost(Post $post)
     {
         $this->post = $post;
@@ -32,8 +35,9 @@ class PostForm extends Form
 
         $this->description = $post->description;
 
-
         $this->is_published = $post->is_published;
+
+        $this->category_id = $post->category_id;
     }
 
     public function store()

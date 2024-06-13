@@ -31,6 +31,8 @@ class CreatePost extends Component
 
     public function render(): View
     {
-        return view('livewire.posts.create-post');
+        return view('livewire.posts.create-post')->with([
+            'categories' => Category::all()->pluck('name', 'id')->toArray()
+        ]);
     }
 }
