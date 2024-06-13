@@ -114,8 +114,7 @@ return [
     |
     */
 
-    'inject_assets' => true,
-
+    'inject_assets' => false,
     /*
     |---------------------------------------------------------------------------
     | Navigate (SPA mode)
