@@ -5,6 +5,11 @@
                 Create
             </a>
     </div>
+    <div class="mb-4">
+        <input type="text" wire:model.live="search" placeholder="Search posts..." class="w-full px-4 py-2 border rounded-md focus:outline-none focus:ring-2 focus:ring-blue-500">
+        <button wire:click="$set('search', '')">Reset Search</button>
+    </div>
+
     @if (session()->has('message'))
     <div class="alert alert-success mb-4 bg-green-100 border border-green-400 text-green-700 px-4 py-3 rounded relative">
         {{ session('message') }}

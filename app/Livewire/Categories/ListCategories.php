@@ -4,13 +4,19 @@ namespace App\Livewire\Categories;
 
 use Livewire\Component;
 use App\Models\Category;
+use Livewire\Attributes\Url;
 use Livewire\Attributes\Computed;
 
 class ListCategories extends Component
 {
-    #[Computed(persist: true, seconds: 7200)]
+    #[Url(keep: true)]
+    public ?string $search = '';
+
+    #[Computed]
     public function categories() {
-        return Category::paginate(10);
+        return Category::when($this->search, function($query) {
+            $query->where('name', 'like', '%' . $this->search . '%');
+        })->latest()->paginate(10, pageName: 'categories-page');
     }
 
     public function createCategory(){
